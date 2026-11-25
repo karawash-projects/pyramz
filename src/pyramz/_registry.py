@@ -890,11 +890,10 @@ _add(
 _add(
     "dashboard",
     "interface",
-    "overview layout panels home summary",
-    *open_rect(3.5, 3.5, 17, 5.5, 2.75, tone=True),
-    R(3.5, 12, 6.5, 8.5, 2.5),
-    *ring(16.6, 16.3, 3.6, gap=70, tone=True),
-    P("M16.6 16.3l1.7-1.7"),
+    "overview gauge meter speed summary metrics",
+    *ring(12, 13.2, 8.5, gap=100, at=90, tone=True),
+    P("M12 13.2l3.4-3.9"),
+    Dot(12, 13.2, 1.5),
 )
 
 _add(
@@ -934,9 +933,9 @@ _add(
     "library",
     "files",
     "books requirements reference shelf catalog standards",
-    R(3, 4, 3.2, 16.5, 1, tone=True),
-    R(9.2, 7, 3.2, 13.5, 1),
-    P("M14.8 19.9 17.5 7.2l3.1.66-2.7 12.7Z", tone=True),
+    R(3.5, 4, 4.5, 16.5, 1.6, tone=True),
+    R(10.5, 7, 4.5, 13.5, 1.6),
+    P("M16.6 20.2 19 7.6l2.6.5-2.4 12.6Z", tone=True),
 )
 
 _add(
@@ -978,9 +977,9 @@ _add(
     "badge-info",
     "interface",
     "notice information banner seal sample alert",
-    R(5, 5, 14, 14, 3.5, tone=True, rotate=15),
-    P("M12 11v5.2h1.4"),
-    Dot(12, 7.9, 1.2),
+    R(4.25, 4.25, 15.5, 15.5, 3.8, tone=True, rotate=15),
+    P("M12 11.2v4.6h1.2"),
+    Dot(12, 8.4, 1.15),
 )
 
 _add(
@@ -1000,7 +999,8 @@ def _alias(alias, target):
 
 
 # Alternative names, so common spellings resolve to Pyramz icons.
-_alias("layout-dashboard", "dashboard")
+_alias("layout-dashboard", "grid")
+_alias("gauge", "dashboard")
 _alias("git-compare-arrows", "compare-arrows")
 _alias("circle-check", "check-circle")
 _alias("circle-x", "x-circle")

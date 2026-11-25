@@ -4,6 +4,12 @@ All notable changes to this project are documented here. The format follows [Kee
 
 ## [Unreleased]
 
+### Changed
+- `dashboard` is redrawn as a gauge, so it no longer reads as a settings list. `gauge` is a new alias for it.
+- `layout-dashboard` now points to `grid`, which matches the Lucide icon of that name.
+- `library` uses outlined books, so it no longer looks heavier than its neighbours at 20px.
+- `badge-info` has a larger badge and a smaller "i", so the letter has room at small sizes.
+
 ## [0.4.0] - 2026-11-25
 
 First public release.
