@@ -1,0 +1,25 @@
+name: Icon request
+description: Ask for a new icon
+labels: ["icon request"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Suggested name
+      description: Lowercase, hyphen-separated (e.g. `calendar-clock`).
+    validations:
+      required: true
+  - type: textarea
+    id: use
+    attributes:
+      label: What will it represent?
+      description: Where it will be used and what it should communicate. Metaphors and sketches are welcome.
+    validations:
+      required: true
+  - type: checkboxes
+    id: search
+    attributes:
+      label: Checks
+      options:
+        - label: I searched existing icons (`pyramz search <word>` or the gallery) and issues.
+          required: true

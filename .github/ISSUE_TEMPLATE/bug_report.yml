@@ -1,0 +1,28 @@
+name: Bug report
+description: Something renders wrongly or the API misbehaves
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: Include the icon name and options, and a screenshot if it's visual.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Minimal reproduction
+      render: python
+      placeholder: |
+        import pyramz
+        print(pyramz.icon("home", size=20, stroke_width=2))
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      placeholder: "pyramz 0.4.0, Python 3.12, Firefox 132"
+    validations:
+      required: true

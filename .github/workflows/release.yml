@@ -1,0 +1,50 @@
+name: Release
+
+# Publishes to PyPI when a GitHub Release is published (tag like v0.2.0).
+# Uses PyPI Trusted Publishing: no API tokens are stored in the repo.
+# One-time setup is described in RELEASING.md.
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Check tag matches package version
+        run: |
+          VERSION=$(python -c "import re;print(re.search(r'__version__ = \"(.+?)\"', open('src/pyramz/__init__.py').read()).group(1))")
+          if [ "v$VERSION" != "${GITHUB_REF_NAME}" ]; then
+            echo "Tag ${GITHUB_REF_NAME} does not match package version v$VERSION" >&2
+            exit 1
+          fi
+      - run: pip install build twine
+      - run: python -m build
+      - run: twine check --strict dist/*
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+  publish-pypi:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/project/pyramz/
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+      - uses: pypa/gh-action-pypi-publish@release/v1
