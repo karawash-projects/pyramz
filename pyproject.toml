@@ -8,7 +8,7 @@ dynamic = ["version"]
 description = "Original, duotone-ready SVG icons for Python: web templates, Jupyter, CLI and sprites."
 readme = "README.md"
 license = "Apache-2.0"
-license-files = ["LICENSE"]
+license-files = ["LICENSE", "NOTICE"]
 authors = [{ name = "karawash-projects", email = "287877668+karawash-projects@users.noreply.github.com" }]
 requires-python = ">=3.9"
 dependencies = []
