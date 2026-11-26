@@ -4,13 +4,6 @@ updates:
     directory: /
     schedule:
       interval: monthly
-    ignore:
-      # v5 of these two deployed only intermittently; stay on v4 until a newer
-      # pair is verified with a manual Gallery run.
-      - dependency-name: actions/upload-pages-artifact
-        update-types: ["version-update:semver-major"]
-      - dependency-name: actions/deploy-pages
-        update-types: ["version-update:semver-major"]
     groups:
       actions:
         patterns: ["*"]
